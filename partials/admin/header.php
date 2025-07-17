@@ -1,8 +1,7 @@
 <?php
 
-include __DIR__ . '/../../helper.php';
+include __DIR__ . '/../../init.php';
 
-echo base_url('cmd-pdo')
 
 ?>
 
