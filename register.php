@@ -3,6 +3,23 @@
 include "partials/header.php";
 include "partials/navbar.php"; 
 include "partials/hero.php";
+
+if (isPostRequest()) {
+    $username = getPostData('username');
+    $email = getPostData('email');
+    $password = getPostData('password');
+
+    $user = new user();
+
+    if ($user->register($username, $email, $password )) {
+        // Registration successful
+        redirect('login.php');
+    } else {
+        // Registration failed
+        echo " Registration failed. Please try again.";
+    }
+     
+}
 ?>
 
 
@@ -11,22 +28,22 @@ include "partials/hero.php";
   <h2 class="text-center mb-4">Register</h2>
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <form action="welcome.php" method="post">
+      <form method="post">
         <div class="mb-3">
-          <label for="name" class="form-label">Full Name *</label>
-          <input type="text" class="form-control" id="name" required>
+          <label for="username" class="form-label">User Name *</label>
+          <input name="username" type="text" class="form-control" id="username" required>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email address *</label>
-          <input type="email" class="form-control" id="email" required>
+          <input name="email" type="email" class="form-control" id="email" required>
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password *</label>
-          <input type="password" class="form-control" id="password" required>
+          <input name="password" type="password" class="form-control" id="password" required>
         </div>
         <div class="mb-3">
           <label for="confirm-password" class="form-label">Confirm Password *</label>
-          <input type="password" class="form-control" id="confirm-password" required>
+          <input name="confirm-password" type="password" class="form-control" id="confirm-password" required>
         </div>
         <button type="submit" class="btn btn-primary w-100">Register</button>
       </form>
