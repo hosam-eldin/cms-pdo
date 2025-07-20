@@ -9,4 +9,5 @@ require_once 'config/config.php';
 require_once 'helper.php';
 
 define('APP_NAME', 'CMS PDO System');
+define('PROJECT_DIR','cms-pdo');
 ?>

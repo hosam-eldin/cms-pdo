@@ -3,7 +3,7 @@ include "init.php";
 
 $db = new database();
 $conn = $db->getConnection();
-var_dump($conn); // For debugging purposes, remove in production
+ // For debugging purposes, remove in production
 ?>
 
 
