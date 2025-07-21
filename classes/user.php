@@ -1,7 +1,7 @@
 <?php
 
 
-class user {
+class User {
   
   private $conn;
   private $table = "users";
@@ -34,11 +34,11 @@ class user {
     $stmt = $this->conn->prepare($query);
     $stmt->bindParam(':email', $email);
     $stmt->execute();
-    $user = $stmt->fetch(PDO::FETCH_OBJ);
+    $User = $stmt->fetch(PDO::FETCH_OBJ);
 
-      if ($user && password_verify($password, $user->password)) {
+      if ($User && password_verify($password, $User->password)) {
         // Password is correct
-        return $user->id; // Return user ID or any other user data as needed
+        return $User->id; // Return User ID or any other User data as needed
       }
     return false;
   }
