@@ -9,7 +9,7 @@ if (isPostRequest()) {
     $email = getPostData('email');
     $password = getPostData('password');
 
-    $user = new user();
+    $user = new User();
 
     if ($user->login( $email, $password)) {
         // Registration successful
