@@ -29,23 +29,18 @@ class user {
   }
 
   public function login($email, $password) {
+    $query = "SELECT * FROM " . $this->table . " WHERE email = :email";
     
-    $query = "SELECT * FROM " . $this->table . " WHERE email = :email ";
-
     $stmt = $this->conn->prepare($query);
     $stmt->bindParam(':email', $email);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_OBJ);
-    
-  
-    if ( $user && password_verify($password , $user->$password)) {
-      return $user->id;
-      echo "Login successful!";
-     }
-     return false;
+
+      if ($user && password_verify($password, $user->password)) {
+        // Password is correct
+        return $user->id; // Return user ID or any other user data as needed
+      }
+    return false;
   }
-
- 
-
 
 }

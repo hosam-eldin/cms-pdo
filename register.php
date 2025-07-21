@@ -28,7 +28,7 @@ if (isPostRequest()) {
   <h2 class="text-center mb-4">Register</h2>
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <form method="post">
+      <form method="POST">
         <div class="mb-3">
           <label for="username" class="form-label">User Name *</label>
           <input name="username" type="text" class="form-control" id="username" required>
