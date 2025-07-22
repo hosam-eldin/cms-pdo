@@ -3,10 +3,17 @@
 include "partials/admin/header.php";
 include "partials/admin/navbar.php"; 
 
+$user = new User();
+
+if (!$user->isLoggedIn()) {
+    // User is not logged in, redirect to login page
+    redirect('login.php');
+}
+
 ?>
 
 <main class="container my-5">
-  <h2 class="mb-4">Admin Dashboard</h2>
+  <h2 class="mb-4">Welcome <?php echo $_SESSION['user_name']; ?> to Admin Dashboard</h2>
 
   <!-- Articles Table -->
   <div class="table-responsive">

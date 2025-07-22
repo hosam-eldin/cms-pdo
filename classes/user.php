@@ -37,10 +37,17 @@ class User {
     $User = $stmt->fetch(PDO::FETCH_OBJ);
 
       if ($User && password_verify($password, $User->password)) {
-        // Password is correct
+         $_SESSION['logged_in'] = true;
+          $_SESSION['user_name'] = $User->username;
+          $_SESSION['user_email'] = $User->email;
         return $User->id; // Return User ID or any other User data as needed
       }
     return false;
   }
+
+  public function isLoggedIn() {
+    return isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+  }
+  
 
 }

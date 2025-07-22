@@ -4,6 +4,8 @@ include "partials/header.php";
 include "partials/navbar.php"; 
 include "partials/hero.php";
 
+
+
 if (isPostRequest()) {
     
     $email = getPostData('email');
@@ -12,7 +14,6 @@ if (isPostRequest()) {
     $user = new User();
 
     if ($user->login( $email, $password)) {
-        // Registration successful
         redirect('admin.php');
     } else {
         // Registration failed
