@@ -42,4 +42,14 @@ function getPostData($field,$default = null) {
 
 function formatDate($date){
       return date( 'F J, Y' , strtotime($date));
-  }
+}
+
+function checkUserLoggedIn(){
+    if(session_status()=== PHP_SESSION_NONE){
+      session_start();
+    }
+    if(!isset($_SESSION['user_id'])){
+      redirect('login.php');
+      exit;
+    }
+}

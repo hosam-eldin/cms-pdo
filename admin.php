@@ -3,15 +3,9 @@
 include "partials/admin/header.php";
 include "partials/admin/navbar.php"; 
 
-$user = new User();
+
+
 $article = new Article();
-
-
-
-if (!$user->isLoggedIn()) {
-    redirect('login.php');
-}
-
 $userId = $_SESSION['user_id'];
 $userArticles = $article->getArticlesByUser($userId);
 
