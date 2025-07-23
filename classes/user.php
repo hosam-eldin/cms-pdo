@@ -34,13 +34,14 @@ class User {
     $stmt = $this->conn->prepare($query);
     $stmt->bindParam(':email', $email);
     $stmt->execute();
-    $User = $stmt->fetch(PDO::FETCH_OBJ);
+    $user = $stmt->fetch(PDO::FETCH_OBJ);
 
-      if ($User && password_verify($password, $User->password)) {
+      if ($user && password_verify($password, $user->password)) {
          $_SESSION['logged_in'] = true;
-          $_SESSION['user_name'] = $User->username;
-          $_SESSION['user_email'] = $User->email;
-        return $User->id; // Return User ID or any other User data as needed
+          $_SESSION['user_name'] = $user->username;
+          $_SESSION['user_email'] = $user->email;
+          $_SESSION['user_id'] = $user->id;
+        return true;
       }
     return false;
   }
