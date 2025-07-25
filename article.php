@@ -16,16 +16,12 @@ if($articleId){
 }
 
 
-
-
-
-
 ?>
 
 <!-- Main Content -->
 <main class="container my-5">
 
-  <h2 class='text-center'> <?php echo $articleData->title; ?></h2>
+
   <!-- Featured Image -->
   <div class="mb-4">
 

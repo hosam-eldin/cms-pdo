@@ -31,9 +31,25 @@ function redirect($url) {
     header("Location: " . base_url($url));
     exit();
 }
+
 function isPostRequest() {
     return $_SERVER['REQUEST_METHOD'] === 'POST';
 }
+
 function getPostData($field,$default = null) {
     return isset($_POST[$field]) ? trim($_POST[$field]) : $default;
+}
+
+function formatDate($date){
+      return date( 'F J, Y' , strtotime($date));
+}
+
+function checkUserLoggedIn(){
+    if(session_status() === PHP_SESSION_NONE){
+      session_start();
+    }
+    if(!isset($_SESSION['user_id'])){
+      redirect('login.php');
+      exit;
+    }
 }
