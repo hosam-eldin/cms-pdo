@@ -23,10 +23,6 @@ if(isPostRequest()){
         $targetFile = $targetDir . basename($_FILES['featured_image']['name']);
         $imageFileType = strtolower(pathinfo( $targetFile, PATHINFO_EXTENSION));
 
-        
-
-
-
         $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
 
         if(in_array($imageFileType,  $allowedTypes)){

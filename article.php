@@ -16,10 +16,6 @@ if($articleId){
 }
 
 
-
-
-
-
 ?>
 
 <!-- Main Content -->

@@ -90,10 +90,35 @@ class Article{
     $stmt->bindParam(':created_at',$created_at);
     $stmt->bindParam('image',$imagePath);
     
-    
     return $stmt->execute();
 
   }
+
+  public function deleteWithImage($id){
+
+      $article = $this->getArticleId($id);
+      if(($article)){
+        //check for user ownership
+        if($article->user_id == $_SESSION['user_id']){
+        
+            if(!empty($article->image) && file_exists($article->image)){
+              if(!unlink($article->image)){
+                return false;
+              }
+            }
+            $query = "DELETE FROM " .$this->table . " WHERE id= :id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            return $stmt->execute();
+          }
+            
+        }else{
+            redirect('admin.php');
+        } 
+
+          return false;
+      }   
+  
     
   
 
