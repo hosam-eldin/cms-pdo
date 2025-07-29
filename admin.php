@@ -23,9 +23,9 @@ $userArticles = $article->getArticlesByUser($userId);
         Generate Articles
       </button>
     </form>
-    <form method="POST">
+    <form action="reorder-articles.php" method="POST">
       <button name="reorder-articles" type="submit" class="btn btn-warning ">
-        Generate Articles
+        Reorder Articles Id's
       </button>
     </form>
     <button id="deleteSelectedBtn" class="btn btn-danger">Delete Selected Articles</button>

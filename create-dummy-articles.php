@@ -3,11 +3,11 @@ require_once 'init.php';
 
 if(isPostRequest()){
 
-  $count = getPostData('article_count');
+  
   
     $article = new Article();
 
-      if($article->generateDummyData($count)){
+      if($article->generateDummyData(getPostData('article_count'))){
         redirect('admin.php');
       }
 }
