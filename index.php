@@ -24,13 +24,15 @@ $articles = $article->getAllArticles();
     <div class="col-md-4">
 
       <?php if (!empty($articleItem->image)): ?>
-      <img src="<?php echo htmlspecialchars($articleItem->image); ?>" class="img-fluid"
-        style="width:450px; height:200px" alt="Blog Post Image">
-
+      <a href="<?php echo base_url("article.php?id=$articleItem->id"); ?>"><img
+          src="<?php echo htmlspecialchars($articleItem->image); ?>" class="img-fluid" style="width:450px; height:200px"
+          alt="Blog Post Image">
+      </a>
       <?php else: ?>
 
-      <img src="https://via.placeholder.com/350x200" class="img-fluid" alt="Blog Post Image">
-
+      <a href="<?php echo base_url("article.php?id=$articleItem->id"); ?>"><img
+          src="https://via.placeholder.com/350x200" class="img-fluid" alt="Blog Post Image">
+      </a>
       <?php endif; ?>
     </div>
     <div class="col-md-8">

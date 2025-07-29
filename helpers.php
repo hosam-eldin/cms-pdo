@@ -44,6 +44,14 @@ function formatDate($date){
       return date( 'F J, Y' , strtotime($date));
 }
 
+function isLoggedIn(){
+    if(isset($_SESSION['user_id'])){
+      return true;
+    }else{
+      return false;
+    }
+}
+
 function checkUserLoggedIn(){
     if(session_status() === PHP_SESSION_NONE){
       session_start();
