@@ -28,10 +28,11 @@ if($articleId){
 
     <?php if(!empty($articleData)): ?>
 
-    <img src="<?php echo htmlspecialchars($articleData->image)?> " class="img-fluid w-100" alt="Featured Image">
+    <img src="<?php echo htmlspecialchars($articleData->image)?> " class="img-fluid " alt="Featured Image"
+      style="max-height: 600px;">
 
     <?php else: ?>
-    <img src="https://via.placeholder.com/1200x600" class="img-fluid w-100" alt="Featured Image">
+    <img src="https://via.placeholder.com/350x600" class="img-fluid " alt="Featured Image" style="max-height: 600px;">
 
     <?php endif; ?>
   </div>
